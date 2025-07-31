@@ -49,7 +49,7 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center py-4">
           <div className="flex items-center">
-            <h1 className="text-2xl font-bold text-primary">Peak Roofing & Snow</h1>
+            <h1 className="text-2xl font-bold text-primary">Greater Sudbury Roofing</h1>
           </div>
 
           {/* Desktop Navigation */}
