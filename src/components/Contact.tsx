@@ -185,12 +185,12 @@ const Contact = () => {
               <div className="text-muted-foreground space-y-2">
                 <p>We proudly serve the greater metropolitan area including:</p>
                 <div className="grid grid-cols-2 gap-2 text-sm mt-3">
-                  <div>• Downtown Core</div>
-                  <div>• North District</div>
-                  <div>• South Valley</div>
-                  <div>• East Hills</div>
-                  <div>• West End</div>
-                  <div>• Suburbs</div>
+                  <div>• Sudbury</div>
+                  <div>• Val Caron</div>
+                  <div>• Lively</div>
+                  <div>• Garson</div>
+                  <div>• Copper Cliff</div>
+                  <div>• Chelmsford</div>
                 </div>
                 <p className="text-sm mt-3">
                   Not sure if we serve your area? Give us a call - we may be able to help!
