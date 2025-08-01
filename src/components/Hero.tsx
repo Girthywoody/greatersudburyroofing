@@ -48,7 +48,7 @@ const Hero = () => {
               size="lg" 
               variant="outline"
               onClick={scrollToContact}
-              className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary px-8 py-6 text-lg font-semibold"
+              className="border-primary-foreground text-blue-600 hover:bg-primary-foreground hover:text-primary px-8 py-6 text-lg font-semibold"
             >
               <FileText className="mr-2 h-5 w-5" />
               Request Quote Online
