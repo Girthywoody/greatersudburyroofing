@@ -5,9 +5,10 @@ const Footer = () => {
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
-    if (element) {
-      // Calculate header height (top bar + main nav + some padding)
-      const headerHeight = 120; // Approximate height in pixels
+    const header = document.querySelector('header');
+    if (element && header) {
+      // Get the actual header height dynamically
+      const headerHeight = header.offsetHeight;
       const elementPosition = element.offsetTop - headerHeight;
       
       window.scrollTo({
