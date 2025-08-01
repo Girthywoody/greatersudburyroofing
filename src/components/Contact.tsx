@@ -30,6 +30,20 @@ const Contact = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const scrollToContact = () => {
+    const element = document.getElementById('contact');
+    if (element) {
+      // Calculate header height (top bar + main nav + some padding)
+      const headerHeight = 120; // Approximate height in pixels
+      const elementPosition = element.offsetTop - headerHeight;
+      
+      window.scrollTo({
+        top: elementPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <section id="contact" className="py-20 bg-gradient-section">
       <div className="container mx-auto px-4">
