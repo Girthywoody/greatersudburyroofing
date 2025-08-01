@@ -20,18 +20,6 @@ const Header = () => {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center text-sm">
             <div className="flex flex-col md:flex-row items-center gap-4">
-              <div className="flex items-center gap-2">
-                <Phone className="h-4 w-4" />
-                <span>(555) 123-ROOF</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Mail className="h-4 w-4" />
-                <span>info@peakroofing.com</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <MapPin className="h-4 w-4" />
-                <span>Serving Greater Metro Area</span>
-              </div>
             </div>
             <Button 
               variant="outline" 
