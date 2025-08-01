@@ -18,17 +18,15 @@ const Header = () => {
       {/* Top contact bar */}
       <div className="bg-primary text-primary-foreground py-2">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-center text-sm">
-            <div className="flex flex-col md:flex-row items-center gap-4">
-              <div className="flex items-center gap-2">
-                <Phone className="h-4 w-4" />
-                <span>(705) 555-ROOF</span>
-              </div>
+          <div className="flex flex-row justify-between items-center text-sm">
+            <div className="flex items-center gap-2">
+              <Phone className="h-4 w-4" />
+              <span>(705) 555-ROOF</span>
             </div>
             <Button 
               variant="outline" 
               size="sm" 
-              className="bg-accent text-accent-foreground border-accent-foreground/20 hover:bg-accent-foreground hover:text-accent mt-2 md:mt-0"
+              className="bg-accent text-accent-foreground border-accent-foreground/20 hover:bg-accent-foreground hover:text-accent"
               onClick={() => scrollToSection('contact')}
             >
               Get Free Quote
