@@ -1,4 +1,4 @@
-import snowRemovalImage from "@/assets/snow-removal.jpg";
+import snowPlowImage from "@/assets/snow-plow-new.jpg";
 
 const WinterServices = () => {
   const winterServices = [
@@ -24,7 +24,7 @@ const WinterServices = () => {
     <section id="winter-services" className="bg-secondary text-secondary-foreground">
       {/* Full-width banner image */}
       <img
-        src={snowRemovalImage}
+        src={snowPlowImage}
         alt="Snow removal in Sudbury"
         className="w-full h-64 md:h-96 object-cover"
       />
