@@ -1,32 +1,30 @@
-import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Home, Shield, Wrench, Droplets } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 const RoofingServices = () => {
   const services = [
     {
-      icon: Home,
+      num: "01",
       title: "Roofing",
-      description: "Complete roof installation, repair, and replacement services using premium materials and expert craftsmanship.",
-      features: ["New Construction", "Roof Replacement", "Emergency Repairs", "Inspections"]
+      description: "Full tear-offs, new builds, and emergency patches. Premium materials rated for northern Ontario's worst.",
+      features: "New construction, tear-offs, re-roofing, storm damage, inspections"
     },
     {
-      icon: Shield,
-      title: "Soffit & Fascia", 
-      description: "Professional soffit and fascia installation and repair to protect your home's roofline and improve ventilation.",
-      features: ["Aluminum Soffit", "Vinyl Fascia", "Ventilation Systems", "Color Matching"]
+      num: "02",
+      title: "Soffit & Fascia",
+      description: "Protects your roofline from moisture, pests, and ice buildup. Proper ventilation that actually works in this climate.",
+      features: "Aluminum soffit, vinyl fascia, ventilation systems, color matching"
     },
     {
-      icon: Wrench,
+      num: "03",
       title: "Repairs & Maintenance",
-      description: "Expert repair services to extend your roof's lifespan and prevent costly damage from weather and wear.",
-      features: ["Leak Repairs", "Shingle Replacement", "Flashing Repair", "Preventive Maintenance"]
+      description: "Catch it early or pay for it later. We find the problem and fix it right the first time.",
+      features: "Leak repair, shingle replacement, flashing, preventive maintenance"
     },
     {
-      icon: Droplets,
+      num: "04",
       title: "Eavestrough",
-      description: "Complete gutter systems installation and maintenance to protect your home's foundation and landscaping.",
-      features: ["Seamless Gutters", "Downspout Installation", "Gutter Guards", "Cleaning & Maintenance"]
+      description: "Seamless gutter systems that handle spring melt and summer downpours without backing up into your fascia.",
+      features: "Seamless gutters, downspouts, gutter guards, cleaning"
     }
   ];
 
@@ -34,63 +32,48 @@ const RoofingServices = () => {
     const element = document.getElementById('contact');
     const header = document.querySelector('header');
     if (element && header) {
-      // Get the actual header height dynamically
       const headerHeight = header.offsetHeight;
       const elementPosition = element.offsetTop - headerHeight;
-      
-      window.scrollTo({
-        top: elementPosition,
-        behavior: 'smooth'
-      });
+      window.scrollTo({ top: elementPosition, behavior: 'smooth' });
     }
   };
 
   return (
-    <section id="roofing-services" className="py-20 bg-gradient-section">
+    <section id="roofing-services" className="py-20 bg-muted">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-            Summer Roofing Services
+        <div className="mb-14">
+          <h2 className="accent-line font-serif text-3xl md:text-4xl text-foreground pt-2">
+            What We Do
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            From complete roof installations to detailed repairs, we provide comprehensive roofing solutions 
-            to keep your home protected year-round.
-          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-          {services.map((service, index) => {
-            const IconComponent = service.icon;
-            return (
-              <Card key={index} className="p-6 shadow-card hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <IconComponent className="h-8 w-8 text-primary" />
-                  </div>
-                  <h3 className="text-xl font-semibold mb-3 text-card-foreground">{service.title}</h3>
-                  <p className="text-muted-foreground mb-4 text-sm leading-relaxed">{service.description}</p>
-                  <ul className="text-sm text-muted-foreground space-y-1">
-                    {service.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-center justify-center">
-                        <span className="w-1.5 h-1.5 bg-accent rounded-full mr-2"></span>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </Card>
-            );
-          })}
+        <div className="max-w-5xl">
+          {services.map((service, index) => (
+            <div
+              key={service.num}
+              className={`py-10 border-b-2 border-border grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-10 items-baseline ${
+                index % 2 === 1 ? "md:ml-auto md:max-w-4xl" : ""
+              }`}
+            >
+              <div className="md:col-span-2">
+                <span className="font-serif text-5xl text-accent/40 font-normal">{service.num}</span>
+              </div>
+              <div className="md:col-span-10">
+                <h3 className="font-serif text-2xl text-foreground mb-2">{service.title}</h3>
+                <p className="text-muted-foreground leading-relaxed mb-2 max-w-xl">{service.description}</p>
+                <p className="text-sm text-muted-foreground/60">{service.features}</p>
+              </div>
+            </div>
+          ))}
         </div>
 
-        <div className="text-center">
-          <Button 
-            size="lg"
+        <div className="mt-12">
+          <button
             onClick={scrollToContact}
-            className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-button px-8 py-3"
+            className="flex items-center gap-2 text-accent font-bold text-sm uppercase tracking-wide hover:gap-3 transition-all"
           >
-            Get Your Free Estimate
-          </Button>
+            Get your free estimate <ArrowRight className="h-4 w-4" />
+          </button>
         </div>
       </div>
     </section>

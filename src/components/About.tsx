@@ -1,100 +1,71 @@
-import { Card } from "@/components/ui/card";
-import { Award, Users, MapPin, Clock } from "lucide-react";
-
 const About = () => {
-  const highlights = [
-    {
-      icon: Award,
-      title: "Licensed & Insured",
-      description: "Fully licensed, bonded, and insured for your peace of mind"
-    },
-    {
-      icon: Users,
-      title: "Expert Team", 
-      description: "Experienced professionals with decades of combined expertise"
-    },
-    {
-      icon: MapPin,
-      title: "Local Service",
-      description: "Proudly serving the greater metro area and surrounding communities"
-    },
-    {
-      icon: Clock,
-      title: "Quick Response",
-      description: "Fast response times for estimates, emergencies, and scheduled service"
-    }
+  const facts = [
+    { label: "Licensed & Insured", detail: "Fully bonded for residential and commercial work" },
+    { label: "Greater Sudbury & Area", detail: "Val Caron, Lively, Garson, Chelmsford, Copper Cliff" },
+    { label: "24/7 Emergency Service", detail: "Storm damage, leaks, ice dams — any time of year" },
   ];
 
   return (
-    <section id="about" className="py-20 bg-background">
+    <section id="about" className="py-20 bg-muted">
       <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-            About Greater Sudbury Roofing
-          </h2>
-          <p className="text-xl text-muted-foreground leading-relaxed mb-8">
-            For over 25 years, Greater Sudbury Roofing has been the trusted choice for professional 
-            roofing and snow removal services in our community. We combine traditional craftsmanship 
-            with modern techniques to deliver exceptional results that stand the test of time.
-          </p>
-          <p className="text-lg text-muted-foreground leading-relaxed">
-            Our commitment to quality, reliability, and customer satisfaction has earned us thousands 
-            of satisfied customers and a reputation as the area's premier roofing and snow removal company. 
-            Whether you need emergency repairs, a complete roof replacement, or reliable winter services, 
-            our experienced team is here to help.
-          </p>
-        </div>
+        {/* Pull quote */}
+        <blockquote className="font-serif italic text-2xl md:text-3xl text-foreground max-w-2xl mb-16 leading-snug border-l-4 border-accent pl-6">
+          "Family-owned since 1998. Still answering the phone ourselves."
+        </blockquote>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-          {highlights.map((highlight, index) => {
-            const IconComponent = highlight.icon;
-            return (
-              <Card key={index} className="p-6 text-center shadow-card hover:shadow-lg transition-all duration-300">
-                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <IconComponent className="h-8 w-8 text-primary" />
-                </div>
-                <h3 className="text-lg font-semibold mb-3 text-card-foreground">{highlight.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">{highlight.description}</p>
-              </Card>
-            );
-          })}
-        </div>
-
-        <div className="bg-primary/5 rounded-lg p-8">
-          <div className="text-center">
-            <h3 className="text-2xl font-bold text-foreground mb-4">
-              Why Choose Greater Sudbury Roofing?
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left max-w-4xl mx-auto">
-              <div className="space-y-3">
-                <div className="flex items-start">
-                  <span className="w-2 h-2 bg-accent rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                  <span className="text-muted-foreground">Quality materials from trusted manufacturers</span>
-                </div>
-                <div className="flex items-start">
-                  <span className="w-2 h-2 bg-accent rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                  <span className="text-muted-foreground">Comprehensive warranties on all work</span>
-                </div>
-                <div className="flex items-start">
-                  <span className="w-2 h-2 bg-accent rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                  <span className="text-muted-foreground">Free detailed estimates and consultations</span>
-                </div>
-              </div>
-              <div className="space-y-3">
-                <div className="flex items-start">
-                  <span className="w-2 h-2 bg-accent rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                  <span className="text-muted-foreground">24/7 emergency service availability</span>
-                </div>
-                <div className="flex items-start">
-                  <span className="w-2 h-2 bg-accent rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                  <span className="text-muted-foreground">Family-owned and operated since 1998</span>
-                </div>
-                <div className="flex items-start">
-                  <span className="w-2 h-2 bg-accent rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                  <span className="text-muted-foreground">Satisfaction guaranteed on every project</span>
-                </div>
-              </div>
+        {/* Two-column editorial layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 mb-16">
+          {/* Left: Story (60%) */}
+          <div className="lg:col-span-7">
+            <h2 className="accent-line font-serif text-3xl md:text-4xl text-foreground pt-2 mb-6">
+              About Us
+            </h2>
+            <div className="space-y-4 text-muted-foreground leading-relaxed max-w-lg">
+              <p>
+                Greater Sudbury Roofing started as a two-person crew working out of a garage in
+                Copper Cliff. Twenty-five years later, we're still locally owned, still hands-on,
+                and still believe a handshake means something.
+              </p>
+              <p>
+                We specialize in roofing systems that hold up to what northern Ontario throws at
+                them — the freeze-thaw cycles, the ice damming, the snow loads that southern
+                contractors never think about. Every material we use and every technique we apply
+                is chosen for this climate, not a textbook.
+              </p>
+              <p>
+                Our crew lives here. We drive the same roads, shovel the same driveways, and see
+                our work every day. That's the kind of accountability you don't get from an
+                out-of-town outfit.
+              </p>
             </div>
+          </div>
+
+          {/* Right: Fact list (40%) */}
+          <div className="lg:col-span-5 flex items-start">
+            <div className="w-full lg:mt-12">
+              {facts.map((fact, index) => (
+                <div key={index} className={`py-5 ${index < facts.length - 1 ? 'border-b-2 border-border' : ''}`}>
+                  <h4 className="font-serif text-lg text-foreground mb-1">{fact.label}</h4>
+                  <p className="text-sm text-muted-foreground">{fact.detail}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Trust band */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 border-t-2 border-border pt-10">
+          <div>
+            <span className="font-serif text-4xl text-primary">25+</span>
+            <p className="text-sm text-muted-foreground mt-1 font-semibold uppercase tracking-wide">Years in Sudbury</p>
+          </div>
+          <div>
+            <span className="font-serif text-4xl text-primary">Sudbury & Area</span>
+            <p className="text-sm text-muted-foreground mt-1 font-semibold uppercase tracking-wide">Full regional coverage</p>
+          </div>
+          <div>
+            <span className="font-serif text-4xl text-primary">24/7</span>
+            <p className="text-sm text-muted-foreground mt-1 font-semibold uppercase tracking-wide">Emergency response</p>
           </div>
         </div>
       </div>

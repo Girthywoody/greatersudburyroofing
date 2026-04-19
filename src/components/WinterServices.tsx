@@ -1,106 +1,73 @@
-import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Snowflake, Truck, Clock, Shield } from "lucide-react";
 import snowRemovalImage from "@/assets/snow-removal.jpg";
 
 const WinterServices = () => {
-  const services = [
+  const winterServices = [
     {
-      icon: Truck,
-      title: "Snow Plowing",
-      description: "Professional snow plowing services for driveways, parking lots, and commercial properties.",
-      features: ["Residential Driveways", "Commercial Lots", "24/7 Availability", "Contract Options"]
+      term: "Snow Plowing",
+      desc: "Driveways, commercial lots, and parking areas. 24/7 availability with seasonal contract options."
     },
     {
-      icon: Snowflake,
-      title: "Snow Removal",
-      description: "Complete snow removal and hauling services for heavy snowfall and ice management.",
-      features: ["Heavy Snow Removal", "Ice Breaking", "Salt Application", "Walkway Clearing"]
+      term: "Snow Removal & Hauling",
+      desc: "Heavy accumulation removal, ice breaking, salt and sand, walkway clearing. We haul it out when there's nowhere left to push it."
     },
     {
-      icon: Clock,
-      title: "Emergency Service",
-      description: "Around-the-clock emergency snow removal when you need it most during severe weather.",
-      features: ["24/7 Response", "Priority Service", "Emergency Rates", "Weather Monitoring"]
+      term: "Emergency Response",
+      desc: "Severe weather doesn't wait and neither do we. Priority dispatch with guaranteed response times."
     },
     {
-      icon: Shield,
-      title: "Seasonal Contracts",
-      description: "Reliable seasonal snow removal contracts with guaranteed response times and priority service.",
-      features: ["Fixed Pricing", "Priority Response", "Equipment Guarantee", "Weather Updates"]
+      term: "Seasonal Contracts",
+      desc: "Fixed-price winter plans. Priority service, equipment guarantee, no surprises on your bill."
     }
   ];
 
-  const scrollToContact = () => {
-    const element = document.getElementById('contact');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
-    <section id="winter-services" className="py-20 bg-background">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
-          <div>
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+    <section id="winter-services" className="bg-secondary text-secondary-foreground">
+      {/* Full-width banner image */}
+      <img
+        src={snowRemovalImage}
+        alt="Snow removal in Sudbury"
+        className="w-full h-64 md:h-96 object-cover"
+      />
+
+      <div className="container mx-auto px-4 py-16 md:py-20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+          {/* Left column */}
+          <div className="lg:col-span-7">
+            <h2 className="font-serif text-3xl md:text-4xl text-secondary-foreground mb-6">
               Winter Snow Services
             </h2>
-            <p className="text-xl text-muted-foreground mb-8">
-              When winter weather strikes, count on our professional snow removal team to keep your 
-              property safe and accessible. We provide reliable, efficient snow and ice management 
-              services throughout the winter season.
+            <p className="text-secondary-foreground/60 leading-relaxed mb-10 max-w-lg">
+              Sudbury averages over 260 cm of snow a year. When it dumps, you need a crew that
+              knows the city, owns the iron, and shows up before you're stuck. We've kept
+              this city moving for over two decades.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button 
-                size="lg"
-                onClick={scrollToContact}
-                className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-button"
+
+            <dl className="space-y-0">
+              {winterServices.map((service, index) => (
+                <div key={index} className={`py-5 ${index < winterServices.length - 1 ? 'border-b border-secondary-foreground/10' : ''}`}>
+                  <dt className="font-serif text-xl text-secondary-foreground mb-2">{service.term}</dt>
+                  <dd className="text-secondary-foreground/50 text-sm leading-relaxed max-w-lg">{service.desc}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+
+          {/* Right column - Emergency callout */}
+          <div className="lg:col-span-5 flex items-start">
+            <div className="bg-accent text-accent-foreground p-8 w-full lg:mt-12">
+              <p className="text-xs uppercase tracking-[0.25em] font-bold mb-3 text-accent-foreground/80">24/7 Emergency</p>
+              <p className="font-serif text-2xl mb-4">Storm damage?<br />We're on call.</p>
+              <a
+                href="tel:+17055551234"
+                className="block text-3xl md:text-4xl font-serif hover:opacity-80 transition-opacity mb-4"
               >
-                Get Winter Quote
-              </Button>
-              <Button 
-                variant="outline" 
-                size="lg"
-                onClick={() => window.location.href = 'tel:+15551237663'}
-              >
-                Emergency Call
-              </Button>
+                (705) 555-1234
+              </a>
+              <p className="text-accent-foreground/80 text-sm leading-relaxed">
+                Roof leaks, ice dams, heavy snow loads, fallen branches &mdash; call anytime and we'll be there.
+              </p>
             </div>
           </div>
-          <div className="relative">
-            <img 
-              src={snowRemovalImage} 
-              alt="Professional snow removal service"
-              className="rounded-lg shadow-card w-full h-auto"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent rounded-lg"></div>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {services.map((service, index) => {
-            const IconComponent = service.icon;
-            return (
-              <Card key={index} className="p-6 shadow-card hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <IconComponent className="h-8 w-8 text-accent" />
-                  </div>
-                  <h3 className="text-xl font-semibold mb-3 text-card-foreground">{service.title}</h3>
-                  <p className="text-muted-foreground mb-4 text-sm leading-relaxed">{service.description}</p>
-                  <ul className="text-sm text-muted-foreground space-y-1">
-                    {service.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-center justify-center">
-                        <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2"></span>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </Card>
-            );
-          })}
         </div>
       </div>
     </section>

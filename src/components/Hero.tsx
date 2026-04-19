@@ -1,5 +1,3 @@
-import { Button } from "@/components/ui/button";
-import { Phone, FileText } from "lucide-react";
 import heroImage from "@/assets/hero-roofing.jpg";
 
 const Hero = () => {
@@ -7,10 +5,9 @@ const Hero = () => {
     const element = document.getElementById('contact');
     const header = document.querySelector('header');
     if (element && header) {
-      // Get the actual header height dynamically
       const headerHeight = header.offsetHeight;
       const elementPosition = element.offsetTop - headerHeight;
-      
+
       window.scrollTo({
         top: elementPosition,
         behavior: 'smooth'
@@ -18,66 +15,55 @@ const Hero = () => {
     }
   };
 
-  const callNow = () => {
-    window.location.href = 'tel:+15551237663';
-  };
-
   return (
-    <section id="home" className="relative min-h-screen flex items-center">
-      {/* Background Image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${heroImage})` }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/80 to-primary/40"></div>
-      </div>
-
-      {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 text-center text-primary-foreground">
-        <div className="max-w-4xl mx-auto">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-            Professional Roofing &<br />
-            <span className="text-accent">Snow Removal</span>
-          </h1>
-          <p className="text-xl md:text-2xl mb-8 opacity-90">
-            Trusted local experts serving your community year-round with quality roofing services and reliable snow removal.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button 
-              size="lg" 
-              onClick={callNow}
-              className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-button px-8 py-6 text-lg font-semibold"
-            >
-              <Phone className="mr-2 h-5 w-5" />
-              Call for Quote
-            </Button>
-            <Button 
-              size="lg" 
-              variant="outline"
-              onClick={scrollToContact}
-              className="border-primary-foreground text-blue-600 hover:bg-primary-foreground hover:text-primary px-8 py-6 text-lg font-semibold"
-            >
-              <FileText className="mr-2 h-5 w-5" />
-              Request Quote Online
-            </Button>
+    <section id="home" className="bg-background">
+      <div className="container mx-auto px-4 py-16 md:py-24">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center">
+          {/* Image - shown first on mobile */}
+          <div className="md:hidden relative">
+            <img
+              src={heroImage}
+              alt="Professional roofing work in Sudbury"
+              className="w-full h-72 object-cover"
+            />
           </div>
 
-          {/* Trust indicators */}
-          <div className="mt-12 pt-8 border-t border-primary-foreground/20">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-              <div>
-                <div className="text-3xl font-bold mb-2">25+</div>
-                <div className="text-sm opacity-80">Years Experience</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold mb-2">1000+</div>
-                <div className="text-sm opacity-80">Happy Customers</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold mb-2">24/7</div>
-                <div className="text-sm opacity-80">Emergency Service</div>
-              </div>
+          {/* Text - Left 55% */}
+          <div className="md:col-span-7">
+            <p className="text-xs tracking-[0.25em] uppercase text-muted-foreground mb-4 font-sans font-bold">
+              Sudbury, Ontario &mdash; Since 1998
+            </p>
+            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-foreground leading-[1.1] mb-6">
+              Built to take<br />what the North<br />throws at it.
+            </h1>
+            <p className="text-lg text-muted-foreground max-w-lg mb-8 leading-relaxed font-sans">
+              Ice storms, heavy snow loads, freeze-thaw cycles &mdash; we've been protecting Sudbury homes from all of it for over 25 years. No shortcuts, no excuses.
+            </p>
+            <div className="flex flex-wrap items-center gap-5">
+              <button
+                onClick={scrollToContact}
+                className="bg-accent text-accent-foreground px-8 py-3.5 font-sans font-bold text-sm uppercase tracking-wide hover:bg-accent/90 transition-colors"
+              >
+                Get a Free Quote
+              </button>
+              <a
+                href="tel:+17055551234"
+                className="text-foreground/60 hover:text-foreground font-sans text-sm font-semibold transition-colors"
+              >
+                or call (705) 555-1234
+              </a>
+            </div>
+          </div>
+
+          {/* Image - Right 45% (desktop only) */}
+          <div className="hidden md:block md:col-span-5 relative">
+            <div className="relative">
+              <div className="absolute -bottom-3 -right-3 w-full h-full border-2 border-accent/40" />
+              <img
+                src={heroImage}
+                alt="Professional roofing work in Sudbury"
+                className="relative w-full h-[420px] lg:h-[500px] object-cover"
+              />
             </div>
           </div>
         </div>
